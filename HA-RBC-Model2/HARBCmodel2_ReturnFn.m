@@ -1,0 +1,17 @@
+function F=HARBCmodel2_ReturnFn(aprime,a,z,r,w,sigma)
+
+F=-Inf;
+
+c=(1+r)*a+w*z-aprime; % Note: w*z + b*(1-z) with z=0 and 1 can be simplified to just w*z with z=b/w and z=1
+
+if c>0
+    if sigma==1
+        F=log(c);
+    else
+        F=(c^(1-sigma) -1)/(1-sigma);
+    end
+end
+
+
+
+end
